@@ -1,26 +1,34 @@
-async function loadMovie() {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
-  const res = await fetch("movies.json");
-  const movies = await res.json();
-  const movie = movies.find(m => m.id === id);
-
-  if (!movie) {
-    document.getElementById("movie-title").textContent = "Movie not found";
-    return;
+[
+  {
+    "title": "Inception",
+    "poster": "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+    "url": "https://iframe.videodelivery.net/YOUR_VIDEO_ID_1",
+    "category": "Sci-Fi",
+    "description": "A thief who steals secrets through dreams is offered a chance to erase his criminal past.",
+    "trending": true
+  },
+  {
+    "title": "Interstellar",
+    "poster": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+    "url": "https://iframe.videodelivery.net/YOUR_VIDEO_ID_2",
+    "category": "Drama",
+    "description": "A team travels through a wormhole in search of a new home for humanity.",
+    "trending": true
+  },
+  {
+    "title": "The Dark Knight",
+    "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "url": "https://iframe.videodelivery.net/YOUR_VIDEO_ID_3",
+    "category": "Action",
+    "description": "Batman faces the Joker, a criminal mastermind who wreaks havoc on Gotham.",
+    "trending": false
+  },
+  {
+    "title": "The Hangover",
+    "poster": "https://image.tmdb.org/t/p/w500/kfZqwGuvEBAysAbCsa0QLKoSYR.jpg",
+    "url": "https://iframe.videodelivery.net/YOUR_VIDEO_ID_4",
+    "category": "Comedy",
+    "description": "Three friends wake up from a wild bachelor party in Vegas with no memory.",
+    "trending": false
   }
-
-  document.getElementById("movie-title").textContent = movie.title;
-
-  document.getElementById("movie-detail").innerHTML = `
-    <img src="${movie.poster}" alt="${movie.title}">
-    <div class="movie-info">
-      <h2>${movie.title}</h2>
-      <p class="rating">⭐ ${movie.rating}/10</p>
-      <p>${movie.description}</p>
-      <iframe src="${movie.url}" allowfullscreen></iframe>
-    </div>
-  `;
-}
-
-loadMovie();
+]
