@@ -21,31 +21,33 @@
     </div>
   </header>
 
-  <!-- Featured Movie Section -->
-  <section id="featured">
-    <div class="featured-content">
+  <!-- FEATURED -->
+  <section id="featured" class="hero">
+    <div class="overlay"></div>
+    <div class="featured-info">
       <h2 id="featured-title">Loading...</h2>
       <p id="featured-desc"></p>
       <button id="play-featured">▶ Play</button>
     </div>
   </section>
 
-  <!-- Trending Carousel -->
+  <!-- TRENDING -->
   <section class="trending">
     <h2>🔥 Trending Now</h2>
-    <div id="trending-container" class="carousel"></div>
+    <div class="carousel-wrapper">
+      <button class="scroll-btn left" onclick="scrollCarousel(-1)">❮</button>
+      <div id="trending-container" class="carousel"></div>
+      <button class="scroll-btn right" onclick="scrollCarousel(1)">❯</button>
+    </div>
   </section>
 
-  <!-- All Movies Grid -->
+  <!-- ALL MOVIES -->
   <main>
     <h2>All Movies</h2>
     <div id="movie-container" class="grid"></div>
   </main>
 
-  <footer>
-    <p>© 2025 MovieFlix. Hosted on Netlify.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- VIDEO MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&time
