@@ -9,7 +9,16 @@
 <body>
   <header>
     <h1>🎬 MovieFlix</h1>
-    <input id="search" type="text" placeholder="Search for movies..." />
+    <div class="controls">
+      <input id="search" type="text" placeholder="Search movies..." />
+      <select id="category">
+        <option value="all">All</option>
+        <option value="Action">Action</option>
+        <option value="Drama">Drama</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Comedy">Comedy</option>
+      </select>
+    </div>
   </header>
 
   <main id="movie-container"></main>
