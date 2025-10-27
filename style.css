@@ -3,23 +3,24 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0f0f0f;
+  background: #0f0f0f;
   color: #fff;
 }
 
+/* HEADER */
 header {
-  background-color: #141414;
-  padding: 20px;
+  background: #141414;
   text-align: center;
+  padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
 }
 
 h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 30px;
 }
 
 .controls {
@@ -29,34 +30,34 @@ h1 {
 #search, #category {
   padding: 10px;
   margin: 5px;
-  border-radius: 5px;
   border: none;
+  border-radius: 5px;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-/* FEATURED MOVIE */
-#featured {
+/* FEATURED HERO */
+.hero {
   position: relative;
+  height: 70vh;
   background-size: cover;
   background-position: center;
-  height: 70vh;
   display: flex;
-  align-items: center;
-  color: white;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 40px;
+  color: #fff;
 }
 
-#featured::after {
-  content: "";
+.overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
 }
 
-.featured-content {
+.featured-info {
   position: relative;
   z-index: 2;
-  padding: 0 40px;
   max-width: 600px;
 }
 
@@ -66,27 +67,29 @@ h1 {
 }
 
 #play-featured {
-  background-color: #e50914;
-  color: white;
+  background: #e50914;
   border: none;
   padding: 12px 24px;
-  font-size: 18px;
   border-radius: 5px;
+  color: white;
+  font-size: 18px;
   cursor: pointer;
-  transition: background 0.3s;
 }
-
 #play-featured:hover {
-  background-color: #b00610;
+  background: #b00610;
 }
 
-/* TRENDING SECTION */
+/* TRENDING */
 .trending {
-  padding: 30px 20px;
+  padding: 40px 20px 20px;
 }
 
 .trending h2 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.carousel-wrapper {
+  position: relative;
 }
 
 .carousel {
@@ -94,8 +97,8 @@ h1 {
   overflow-x: auto;
   gap: 15px;
   scroll-behavior: smooth;
+  padding: 10px;
 }
-
 .carousel::-webkit-scrollbar {
   display: none;
 }
@@ -104,14 +107,32 @@ h1 {
   height: 220px;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
-
 .carousel img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* GRID SECTION */
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(20,20,20,0.8);
+  color: white;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 2;
+}
+.scroll-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+.scroll-btn.left { left: 10px; }
+.scroll-btn.right { right: 10px; }
+
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -120,34 +141,60 @@ h1 {
 }
 
 .movie {
-  background-color: #1c1c1c;
+  background: #1c1c1c;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
-
-.movie:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
+.movie:hover { transform: scale(1.05); }
 
 .movie img {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
-
 .movie h3 {
   text-align: center;
-  padding: 10px;
-  margin: 0;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
+/* MODAL PLAYER */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+
+#close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+#video-player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+}
+
+/* FOOTER */
 footer {
-  background-color: #141414;
-  color: #888;
+  background: #141414;
   text-align: center;
   padding: 20px;
-  margin-top: 30px;
+  color: #999;
 }
